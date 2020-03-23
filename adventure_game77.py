@@ -36,7 +36,7 @@ def national_park():
                     " and promise to guide you back in the morning", 2)
         print_pause("Enter 1 to spend the night in the village", 2)
         print_pause("Enter 2 to go back and search for the camping site", 2)
-        response = input("Please enter 1 or 2: \n")
+        response = valid_input("Please enter 1 or 2: \n", "1", "2")
         if response =="1":
             print_pause("You decide to spend the night at the village", 2)
             print_pause("The next morning a kind Maasai gentleman"

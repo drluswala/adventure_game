@@ -8,13 +8,14 @@ def print_pause(message, t):
 
 
 def valid_input(prompt, option1, option2):
-    response = input(prompt).lower()
-    if option1 in response:
-        return response
-    elif option2 in response:
-        return response
-    else:
-        print_pause("Sorry, I don't understand.", 2)
+     while True:
+       response = input(prompt).lower()
+       if option1 == response:
+           return response
+       elif option2 == response:
+           return response
+       else:
+           print_pause("Sorry, I don't understand.", 2)
 
 
 def intro():
@@ -27,7 +28,7 @@ def intro():
 
 def national_park():
     response = valid_input("Please enter 1 or 2: \n", "1", "2")
-    if "1" in response:
+    if response == "1":
         print_pause("You manage to find some Maasai folks in the village,"
                     " who are willing to help you get back to"
                     " the camping site", 2)
@@ -36,7 +37,7 @@ def national_park():
         print_pause("Enter 1 to spend the night in the village", 2)
         print_pause("Enter 2 to go back and search for the camping site", 2)
         response = input("Please enter 1 or 2: \n")
-        if "1" in response:
+        if response =="1":
             print_pause("You decide to spend the night at the village", 2)
             print_pause("The next morning a kind Maasai gentleman"
                         " guides you back to the camping site", 2)
@@ -45,7 +46,7 @@ def national_park():
             print_pause("You won the game!", 2)
             play_again()
 
-        elif "2" in response:
+        elif response == "2":
             enemy_list = ["You get attacked by a pride of Lions!",
                           "You get attacked by a crash of Black Rhinos!"]
             print_pause("You head back to the forest", 2)
@@ -54,7 +55,7 @@ def national_park():
             play_again()
         else:
             print_pause("Please try again! ", 2)
-    elif "2" in response:
+    elif response == "2":
         enemy_list = ["You get attacked by a pride of Lions!",
                       "You get attacked by a crash of Black Rhinos!"]
         print_pause("You head towards the dense forest to look for"
@@ -70,16 +71,15 @@ def national_park():
 def play_again():
     response = valid_input('Would you like to play again?(Y/N)\n',
                            "y", "n").lower()
-    if "n" in response:
+    if response == "n":
         print_pause("Thank you for playing! Goodbye!", 2)
-    elif "y" in response:
+    elif response == "y":
         play_game()
 
 
 def play_game():
     intro()
     national_park()
-    play_again()
 
 
 play_game()
